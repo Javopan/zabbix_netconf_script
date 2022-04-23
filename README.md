@@ -46,5 +46,18 @@ The instructions were tested on Ubuntu 20.04
 ![create item](create_item.jpg "Create item")  
 19. Fill in the relevan data. In this case we are using a Zabbix macro `{HOST.NAME} - system name` to give it a meaningful name of what we will poll.
 20. Select from the Type list `External check`
-21. 
+21. on they Key field we need to add the script we want to run with the parameters to do the poll.  
+  - In this particular case we need want to try to poll the system name of the unit.  
+  - netconf_driver_zabbix.py is the name of the script downloaded from here and that will be executed
+  - all the parameters that the script will take needs to be between [] and enclsed in ""
+  - argument 1: IP Address of the unit we want to monitor. We can use a macro to get it from the host  
+    in this case {HOST.CONN}
+  - argument 2: The namespace of the module we want to poll. For this case system. the namespace is : `http://siklu.com/yang/tg/system`  
+  - argument 3: The path of the object that we want to get. in this case name `/n366:system/n366:name`.  
+    The n366 is how the scripts adds the namespace to the object path so always add n366: the deeper you go on the path to reach the object  
+    for example here we are polling system/name and the script will give us the value of name
+  - `netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/system", "/n366:system/n366:name"]`
+  - Type of information leave it as text or the type of value you will get
+  - update interval set it for the time you need. In this example it is set to 1 minute `1m`
+  - Fill in the rest according to your needs and add the Item
   
