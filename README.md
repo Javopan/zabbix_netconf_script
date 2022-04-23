@@ -59,5 +59,8 @@ The instructions were tested on Ubuntu 20.04
   - `netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/system", "/n366:system/n366:name"]`
   - Type of information leave it as text or the type of value you will get
   - update interval set it for the time you need. In this example it is set to 1 minute `1m`
-  - Fill in the rest according to your needs and add the Item
-  
+  - Fill in the rest according to your needs and add the Item  
+22. Check that the new item is on the Host Items list with status enabled
+  ![added item](added_item.jpg "Added item")  
+23. If everything worked you can now go to Monitoring Latest data and check that your external check is being pulled
+  ![added item](lastest_data.jpg "Added item")  
