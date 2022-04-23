@@ -2,6 +2,8 @@
 A python script that will enable Zabbix to get netconf data from a unit.
 This instructions are for a Linux installation of Zabbix.
 
+**The script needs to target unique values!!**
+
 The instructions were tested on Ubuntu 20.04
 
 # install instructions  
