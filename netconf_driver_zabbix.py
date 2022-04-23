@@ -101,7 +101,4 @@ if __name__ == '__main__':
         root = etree.fromstring(data)
         answer = root.xpath('.//text()')
         if len(root.xpath('.//text()')) > 0:
-            print(answer[0])
-
-    # example of what commands needs to send. This is an example to get the links
-    # n366_conf = n366.get_command('<filter xmlns:n366="http://siklu.com/yang/tg/radio" select="/n366:radio-common/n366:links" type="xpath"/>')
+            print(answer[-1])
