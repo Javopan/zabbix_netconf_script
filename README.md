@@ -46,7 +46,7 @@ The instructions were tested on Ubuntu 20.04
 ![items clicked](items.jpg "Items clicked")  
 18. On the upper right corner click `Create item`
 ![create item](create_item.jpg "Create item")  
-19. Fill in the relevan data. In this case we are using a Zabbix macro `{HOST.NAME} - system name` to give it a meaningful name of what we will poll.
+19. Fill in the relevan data. `system name` to give it a meaningful name of what we will poll.
 20. Select from the Type list `External check`
 21. on they Key field we need to add the script we want to run with the parameters to do the poll.  
   - In this particular case we need want to try to poll the system name of the unit.  
