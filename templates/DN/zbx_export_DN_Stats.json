@@ -1,0 +1,175 @@
+{
+    "zabbix_export": {
+        "version": "5.4",
+        "date": "2022-04-25T23:05:45Z",
+        "groups": [
+            {
+                "uuid": "6dbef31ff8f54f66b370740c010c7651",
+                "name": "Siklu MH TG"
+            }
+        ],
+        "templates": [
+            {
+                "uuid": "5a87f0b060ef4c5d948e199811850f84",
+                "template": "TG-Distribution Node-Stats",
+                "name": "TG-Distribution Node-Stats",
+                "description": "Checks for TG values",
+                "groups": [
+                    {
+                        "name": "Siklu MH TG"
+                    }
+                ],
+                "items": [
+                    {
+                        "uuid": "fb33b2e8a84e4e13a808085f3ea47bb0",
+                        "name": "Unit MAC",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/interfaces\", \"/n366:interfaces/n366:host/n366:state/n366:mac-address\"]",
+                        "delay": "1d",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Mac Address of the unit\nNo Tracking",
+                        "inventory_link": "MACADDRESS_A"
+                    },
+                    {
+                        "uuid": "a8d943e90c7e4766928de33e7f6afcd1",
+                        "name": "Unit Model",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/inventory\", \"/n366:inventory/n366:component/n366:model-name\"]",
+                        "delay": "1d",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Gets the broad model of the unit.\nChecks it once every 24 hours and does not keep history of the information",
+                        "inventory_link": "HARDWARE"
+                    },
+                    {
+                        "uuid": "39e4e8ef01414f9fb9df7590d7234b23",
+                        "name": "Serial Number",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/inventory\", \"/n366:inventory/n366:component/n366:serial-num\"]",
+                        "delay": "1d",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Gets the Serial Number of the unit.\nThe data is refreshed every 30d. No History of the S/N is kept",
+                        "inventory_link": "SERIALNO_A"
+                    },
+                    {
+                        "uuid": "df2438e4d5d947bb93c1066577ab1729",
+                        "name": "SSID",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/radio\", \"/n366:radio-common/n366:node-config/n366:default-ssid-profile/n366:ssid\"]",
+                        "delay": "1d",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Gets the SSID the unit is radiating.\nNo history is tracked"
+                    },
+                    {
+                        "uuid": "76543aeef3894adfbe32a087256493ce",
+                        "name": "Unit Link Distance Mode",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/radio\", \"/n366:radio-common/n366:node-config/n366:link-distance\"]",
+                        "delay": "1d",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Gets the Link Distance Mode: Normal | Long | Extra Long\nValue not tracked"
+                    },
+                    {
+                        "uuid": "7a7177efd33a421f8a14ebfcf723db1b",
+                        "name": "Unit Operation Mode",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/radio\", \"/n366:radio-common/n366:node-config/n366:operation-mode\"]",
+                        "delay": "1d",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Unit Operation Mode\nValue is not tracked"
+                    },
+                    {
+                        "uuid": "1cadbc473319466d8763ed613773cfd7",
+                        "name": "Sector 1 Freq.",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/radio\", \"/n366:radio-common/n366:sectors-config/n366:sector[n366:index='1']/n366:state/n366:frequency\"]",
+                        "delay": "1h",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Sector 1 frequency\nNo tracking"
+                    },
+                    {
+                        "uuid": "cfe182d461094c3f925b70b7c4c7ac5d",
+                        "name": "Sector 2 Freq.",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/radio\", \"/n366:radio-common/n366:sectors-config/n366:sector[n366:index='2']/n366:state/n366:frequency\"]",
+                        "delay": "1h",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Sector 2 frequency\nNo tracking"
+                    },
+                    {
+                        "uuid": "5a17fe6a271e4da59bfcd9c7265928fc",
+                        "name": "Sector 3 Freq.",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/radio\", \"/n366:radio-common/n366:sectors-config/n366:sector[n366:index='3']/n366:state/n366:frequency\"]",
+                        "delay": "1h",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Sector 3 frequency\nNo tracking"
+                    },
+                    {
+                        "uuid": "a4a7ac1efb1c4bc7a6c74e705b79d68c",
+                        "name": "Sector 4 Freq.",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/radio\", \"/n366:radio-common/n366:sectors-config/n366:sector[n366:index='4']/n366:state/n366:frequency\"]",
+                        "delay": "1h",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Sector 4 frequency\nNo tracking"
+                    },
+                    {
+                        "uuid": "6a467577408641748ad435ae91b2d285",
+                        "name": "System Name",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/system\", \"/n366:system/n366:name\"]",
+                        "delay": "1d",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Gets the system name of the unit. \nThis is the name that needs to be passed to create a link.\n\nThe info for this value won't be tracked over time and it will be check 1 time every 24hours.",
+                        "inventory_link": "NAME"
+                    },
+                    {
+                        "uuid": "3946152f99b1411e96da4f3feca25f84",
+                        "name": "Software Version",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/system\", \"/n366:system/n366:state/n366:banks-info/n366:banks[n366:status='active']/n366:software-version\"]",
+                        "delay": "1d",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Gets the software version running as active on the unit.\nHistory not tracked",
+                        "inventory_link": "SOFTWARE"
+                    },
+                    {
+                        "uuid": "b0ce18389ea440048199940aae2b5591",
+                        "name": "Uptime",
+                        "type": "EXTERNAL",
+                        "key": "netconf_driver_zabbix.py[\"{HOST.CONN}\", \"http://siklu.com/yang/tg/system\", \"/n366:system/n366:state/n366:uptime\"]",
+                        "delay": "1d",
+                        "history": "0",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "Tracks the unit's uptime recorded by the TG unit.\nHistory is not tracked"
+                    }
+                ]
+            }
+        ]
+    }
+}
