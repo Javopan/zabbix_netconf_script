@@ -1,0 +1,261 @@
+zabbix_export:
+  version: '5.4'
+  date: '2022-04-25T23:03:55Z'
+  groups:
+    -
+      uuid: 6dbef31ff8f54f66b370740c010c7651
+      name: 'Siklu MH TG'
+  templates:
+    -
+      uuid: 234849c0086d4cc683847736e34f9473
+      template: 'TG-Customer Node-Stats'
+      name: 'TG-Customer Node-Stats'
+      description: 'Adds Information depending in the Customer Node'
+      groups:
+        -
+          name: 'Siklu MH TG'
+      items:
+        -
+          uuid: 522e423d9a204f9d8a73eefc1e851980
+          name: 'Unit MAC'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/interfaces", "/n366:interfaces/n366:host/n366:state/n366:mac-address"]'
+          delay: 1d
+          history: '0'
+          trends: '0'
+          value_type: TEXT
+          description: |
+            Mac Address of the unit
+            No Tracking
+          inventory_link: MACADDRESS_A
+        -
+          uuid: bf3291629b6e4c9b891e5ba8d0f1c7fa
+          name: 'Unit Model'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/inventory", "/n366:inventory/n366:component/n366:model-name"]'
+          delay: 1d
+          history: '0'
+          trends: '0'
+          value_type: TEXT
+          description: |
+            Gets the broad model of the unit.
+            Checks it once every 24 hours and does not keep history of the information
+        -
+          uuid: de9e6a6b71bf4c918f15e6bed473b0bb
+          name: 'Serial Number'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/inventory", "/n366:inventory/n366:component/n366:serial-num"]'
+          delay: 1d
+          history: '0'
+          trends: '0'
+          value_type: TEXT
+          description: |
+            Gets the Serial Number of the unit.
+            The data is refreshed every 30d. No History of the S/N is kept
+          inventory_link: SERIALNO_A
+        -
+          uuid: 7d5c5734268448118858dab18a54ac02
+          name: 'Link Uptime'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:links/n366:active/n366:link-uptime"]'
+          delay: 15m
+          history: '0'
+          trends: '0'
+          units: seconds
+          description: |
+            Uptime of the wireless link
+            Not tracked
+        -
+          uuid: 5aa38554619644138beae541ec91ee99
+          name: 'MCS - Rx'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:links/n366:active/n366:mcs-rx"]'
+          delay: 15m
+          description: 'Modulation Coding Scheme for TG on the Rx side. The values have been mapped to the Over The Aire capacity (OTA).'
+          valuemap:
+            name: 'TG - MCS Values'
+        -
+          uuid: 563e19f1dbdd4a5d8825c7aee7f6c3ca
+          name: 'MCS - Tx'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:links/n366:active/n366:mcs-tx"]'
+          delay: 15m
+          description: 'Modulation Coding Scheme for TG on the Tx side. The values have been mapped to the Over The Aire capacity (OTA).'
+          valuemap:
+            name: 'TG - MCS Values'
+        -
+          uuid: 7b8d39a8b3624ce6a678c043ed44b447
+          name: RSSI
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:links/n366:active/n366:rssi"]'
+          delay: 15m
+          value_type: FLOAT
+          units: dBm
+          description: 'RSSI of the link N366 -> CN'
+        -
+          uuid: 6998940febb04da19b4614c1338932c6
+          name: 'Rx Beam Az.'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:links/n366:active/n366:rx-beam/n366:beam-azimuth"]'
+          delay: 15m
+          history: 1d
+          trends: 7d
+          units: °
+          description: |
+            Beam deviation from center of the CN
+            Tracked 1 week to check for changes if disconnections happen
+        -
+          uuid: d8baa2952f5c4623bb579ed3a3af5b8f
+          name: 'Rx Beam Elv.'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:links/n366:active/n366:rx-beam/n366:beam-elevation"]'
+          delay: 15m
+          history: 1d
+          trends: 7d
+          units: °
+          description: |
+            Beam deviation from center of the CN
+            Tracked 1 week to check for changes if disconnections happen
+        -
+          uuid: 4dc5b9da33df4c859b23cc52f6939787
+          name: SNR
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:links/n366:active/n366:snr"]'
+          delay: 15m
+          units: dB
+          description: 'SNR of the CN unit'
+        -
+          uuid: a892316989644d04ad7d75ba4e7b0003
+          name: 'Tx Beam Az.'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:links/n366:active/n366:tx-beam/n366:beam-azimuth"]'
+          delay: 15m
+          history: 1d
+          trends: 7d
+          units: °
+          description: |
+            Beam deviation from center of the CN
+            Tracked 1 week to check for changes if disconnections happen
+        -
+          uuid: 0fbbd433ac194c0ab74daeb8e0acbb75
+          name: 'Tx Beam Elv.'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:links/n366:active/n366:tx-beam/n366:beam-elevation"]'
+          delay: 15m
+          history: 1d
+          trends: 7d
+          units: °
+          description: |
+            Beam deviation from center of the CN
+            Tracked 1 week to check for changes if disconnections happen
+        -
+          uuid: a7b99c18bc204032bdb93187fd43724e
+          name: 'Unit Link Distance Mode'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:node-config/n366:link-distance"]'
+          delay: 1d
+          history: '0'
+          trends: '0'
+          value_type: TEXT
+          description: |
+            Gets the Link Distance Mode: Normal | Long | Extra Long
+            Value not tracked
+        -
+          uuid: ccdaf1072dfd43c39cf0dc01f6c7b06a
+          name: 'Unit Operation Mode'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:node-config/n366:operation-mode"]'
+          delay: 1d
+          history: '0'
+          trends: '0'
+          value_type: TEXT
+          description: |
+            Unit Operation Mode
+            Value is not tracked
+        -
+          uuid: db3aa60ca9a144b18b204d1178493b8a
+          name: 'CN Freq.'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/radio", "/n366:radio-common/n366:sectors-config/n366:sector[n366:index=''1'']/n366:state/n366:frequency"]'
+          delay: 1d
+          history: '0'
+          trends: '0'
+          value_type: TEXT
+          description: |
+            Customer Node Frequency
+            No tracking
+        -
+          uuid: 134fc641ab394e739d3a3c8da400015d
+          name: 'System Name'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/system", "/n366:system/n366:name"]'
+          delay: 1d
+          history: '0'
+          trends: '0'
+          value_type: TEXT
+          description: |
+            Gets the system name of the unit. 
+            This is the name that needs to be passed to create a link.
+            
+            The info for this value won't be tracked over time and it will be check 1 time every 24hours.
+          inventory_link: NAME
+        -
+          uuid: 281bd5b2d21f436f87c6b606b52b56d2
+          name: 'Software Version'
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/system", "/n366:system/n366:state/n366:banks-info/n366:banks[n366:status=''active'']/n366:software-version"]'
+          delay: 1d
+          history: '0'
+          trends: '0'
+          value_type: TEXT
+          description: |
+            Gets the software version running as active on the unit.
+            History not tracked
+          inventory_link: SOFTWARE
+        -
+          uuid: ab9a4ceee18445bd8f3da5b5076d6292
+          name: Uptime
+          type: EXTERNAL
+          key: 'netconf_driver_zabbix.py["{HOST.CONN}", "http://siklu.com/yang/tg/system", "/n366:system/n366:state/n366:uptime"]'
+          delay: 1d
+          history: '0'
+          trends: '0'
+          value_type: TEXT
+          description: |
+            Tracks the unit's uptime recorded by the TG unit.
+            History is not tracked
+      valuemaps:
+        -
+          uuid: 527c31f37356484881cf2b3c6309edab
+          name: 'TG - MCS Values'
+          mappings:
+            -
+              value: '2'
+              newvalue: '620'
+            -
+              value: '3'
+              newvalue: '780'
+            -
+              value: '4'
+              newvalue: '950'
+            -
+              value: '6'
+              newvalue: '1025'
+            -
+              value: '7'
+              newvalue: '1580'
+            -
+              value: '8'
+              newvalue: '1900'
+            -
+              value: '9'
+              newvalue: '2050'
+            -
+              value: '10'
+              newvalue: '2500'
+            -
+              value: '11'
+              newvalue: '3150'
+            -
+              value: '12'
+              newvalue: '3800'
