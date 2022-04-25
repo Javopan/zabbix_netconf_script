@@ -36,7 +36,7 @@ The instructions were tested on Ubuntu 20.04
   Add an interface with the IP of the radio to monitor. The type is not important. (For this test it was agent)  
   Description `A unit to be monitored by netconf`  
   Enabled `checked`  
-  ![add host](addhost.jpg "Add a host")  
+  ![add host](images/addhost.jpg "Add a host")  
 14. Click Add
 15. The new Host shall be in the hosts website  
   ![hosts website](hosts.jpg "Hosts website")  
