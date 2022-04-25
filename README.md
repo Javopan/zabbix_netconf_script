@@ -39,13 +39,13 @@ The instructions were tested on Ubuntu 20.04
   ![add host](images/addhost.jpg "Add a host")  
 14. Click Add
 15. The new Host shall be in the hosts website  
-  ![hosts website](hosts.jpg "Hosts website")  
+  ![hosts website](images/hosts.jpg "Hosts website")  
 16. Click on the new host that you want to configure in this case `TG-Unit-0001`
-  ![host clicked](unit.jpg "Host clicked")  
+  ![host clicked](images/unit.jpg "Host clicked")  
 17. In the upper gray ribbon click Items  
-![items clicked](items.jpg "Items clicked")  
+![items clicked](images/items.jpg "Items clicked")  
 18. On the upper right corner click `Create item`
-![create item](create_item.jpg "Create item")  
+![create item](images/create_item.jpg "Create item")  
 19. Fill in the relevan data. `system name` to give it a meaningful name of what we will poll.
 20. Select from the Type list `External check`
 21. on they Key field we need to add the script we want to run with the parameters to do the poll.  
@@ -63,6 +63,6 @@ The instructions were tested on Ubuntu 20.04
   - update interval set it for the time you need. In this example it is set to 1 minute `1m`
   - Fill in the rest according to your needs and add the Item  
 22. Check that the new item is on the Host Items list with status enabled
-  ![added item](added_item.jpg "Added item")  
+  ![added item](images/added_item.jpg "Added item")  
 23. If everything worked you can now go to Monitoring Latest data and check that your external check is being pulled
-  ![added item](lastest_data.jpg "Added item")  
+  ![added item](images/lastest_data.jpg "Added item")  
