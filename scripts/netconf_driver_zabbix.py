@@ -102,3 +102,4 @@ if __name__ == '__main__':
         answer = root.xpath('.//text()')
         if len(root.xpath('.//text()')) > 0:
             print(answer[-1])
+        n366.close()
